@@ -1,6 +1,8 @@
 #calc-mid{
+  column-gap: 2px;
   display: grid;
-  gap: 5px 5px;
+  grid-template-columns: repeat(3, 1fr) [num-col-end] 1fr;
+  grid-template-rows: 1fr [num-row-start] repeat(4, 1fr) [num-row-end] 1fr;
   grid-template-areas:
     "display display display backspace"
     "nums nums nums operators"
@@ -8,6 +10,4 @@
     "nums nums nums operators"
     "nums nums nums operators"
     ". clear clear .";
-  grid-template-columns: repeat(3, 1fr) [num-col-end] 1fr;
-  grid-template-rows: 1fr [num-row-start] repeat(4, 1fr) [num-row-end] 1fr;
 }
