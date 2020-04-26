@@ -1,0 +1,56 @@
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+#backspace{
+  grid-area: backspace;
+}
+
+#calc-top{
+  margin-bottom: 40px;
+}
+
+#clear-button{
+  grid-area: clear;
+}
+
+#display{
+  grid-area: display;
+}
+
+#calculator{
+  display: grid;
+  gap: 5px 5px;
+  grid-template-areas:
+    "display display display backspace"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    ". clear clear .";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  height: 600px;
+  width: 500px;
+}
+
+#numpad{
+  display: grid;
+  grid-area: numpad;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+#operators{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-area: operators;
+}
+
+#operators button{
+  flex-grow: 1;
+}
+
+

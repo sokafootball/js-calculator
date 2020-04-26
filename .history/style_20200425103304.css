@@ -1,0 +1,20 @@
+body{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#calculator{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 500px;
+}
+
+#calc-mid{
+  column-gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 5px;
+}
