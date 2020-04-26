@@ -1,6 +1,5 @@
 function displayNumber(num){
   display = document.querySelector(`#display`)
-  display.innerText = num
 }
 
 function operate(operation, a, b){
