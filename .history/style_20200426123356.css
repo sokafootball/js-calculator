@@ -2,7 +2,6 @@ body{
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 #backspace{
@@ -39,7 +38,7 @@ body{
 }
 
 #footer{
-  margin-bottom: 50px;
+  position: relative;
 }
 
 #numpad{

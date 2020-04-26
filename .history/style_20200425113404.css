@@ -1,0 +1,33 @@
+#backspace{
+  grid-area: backspace;
+}
+
+#calc-top{
+  margin-bottom: 40px;
+}
+
+#display{
+  grid-area: display;
+}
+
+#calculator{
+  width: 600px;
+}
+
+#calc-mid{
+  display: grid;
+  gap: 5px 5px;
+  grid-template-areas:
+    "display display display . backspace"
+    ". . . . ."
+    "numpad numpad numpad . operators"
+    "numpad numpad numpad . operators"
+    "numpad numpad numpad . operators"
+    "numpad numpad numpad . operators"
+    ". . . . ."
+    ". . clear . .";
+  grid-template-columns: repeat(4, 1fr) 1fr;
+  grid-template-rows: 1fr 50px repeat(4, 1fr) 50px 1fr;
+}
+
+

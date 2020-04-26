@@ -39,7 +39,7 @@ body{
 }
 
 #footer{
-  margin-bottom: 50px;
+  align-self: flex-start;
 }
 
 #numpad{

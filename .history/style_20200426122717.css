@@ -1,10 +1,3 @@
-body{
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 #backspace{
   grid-area: backspace;
 }
@@ -22,6 +15,7 @@ body{
 }
 
 #calculator{
+  width: 1000px;
   display: grid;
   gap: 5px 5px;
   grid-template-areas:
@@ -33,13 +27,10 @@ body{
     ". clear clear .";
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  height: 600px;
-  margin-top: 130px;
-  width: 500px;
 }
 
-#footer{
-  margin-bottom: 50px;
+#calc-mid{
+
 }
 
 #numpad{
@@ -54,10 +45,6 @@ body{
   flex-direction: column;
   justify-content: space-evenly;
   grid-area: operators;
-}
-
-#operators button{
-  flex-grow: 1;
 }
 
 

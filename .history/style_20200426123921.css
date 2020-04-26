@@ -39,6 +39,7 @@ body{
 }
 
 #footer{
+  align-self: flex-start;
   margin-bottom: 50px;
 }
 

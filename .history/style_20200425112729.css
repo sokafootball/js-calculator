@@ -1,0 +1,23 @@
+#backspace{
+  grid-area: backspace;
+}
+
+#display{
+  grid-area: display;
+}
+
+#calc-mid{
+  display: grid;
+  gap: 5px 5px;
+  grid-template-areas:
+    "display display display backspace"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    ". clear clear .";
+  grid-template-columns: repeat(3, 1fr) [num-col-end] 1fr;
+  grid-template-rows: 1fr 50px repeat(4, 1fr) 50px 1fr;
+}
+
+
