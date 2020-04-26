@@ -1,7 +1,3 @@
-function operate(operation, a, b){
-  return(operation(a,b))
-}
-
 function add (...nums) {
 	return nums.reduce((total, num) => {
 		return total + num

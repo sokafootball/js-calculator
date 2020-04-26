@@ -1,5 +1,5 @@
 function operate(operation, a, b){
-  return(operation(a,b))
+  console.log(operation(a,b))
 }
 
 function add (...nums) {
