@@ -18,13 +18,10 @@ body{
 }
 
 #display{
-  border: 1px solid black;
-  font-family: 'Barlow', sans-serif;
-  font-size: 35px;
+  text-align: right;
   grid-area: display;
   line-height: 95px;
-  padding-right: 5px;
-  text-align: right;
+  padding-right: 5px
   vertical-align: middle;
 }
 
