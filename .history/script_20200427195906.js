@@ -1,4 +1,4 @@
-const MAX_DISPLAY_LENGTH = 15
+const MAX_DISPLAY_LENGTH = 10
 numButtons = document.querySelectorAll(`.numButton`)
 numButtons = Array.from(numButtons)
 numButtons.forEach(button => {
@@ -6,9 +6,8 @@ numButtons.forEach(button => {
 });
 
 function displayNumber(num){
-	display = document.querySelector(`#display`)
-	if(display.innerText.length >= MAX_DISPLAY_LENGTH) return
-  display.innerText += num
+  display = document.querySelector(`#display`)
+  display.innerText = num
 }
 
 function operate(operation, a, b){

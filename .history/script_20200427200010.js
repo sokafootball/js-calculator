@@ -6,8 +6,7 @@ numButtons.forEach(button => {
 });
 
 function displayNumber(num){
-	display = document.querySelector(`#display`)
-	if(display.innerText.length >= MAX_DISPLAY_LENGTH) return
+  display = document.querySelector(`#display`)
   display.innerText += num
 }
 
