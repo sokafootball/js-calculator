@@ -1,7 +1,7 @@
 numButtons = document.querySelectorAll(`.numButton`)
 numButtons = Array.from(numButtons)
 numButtons.forEach(button => {
-  button.addEventListener(`click`, () => displayNumber(button.innerText))
+  document.addEventListener(`click`, function(button.innerText){displayNumber(button.innerText)})
 });
 
 function displayNumber(num){
