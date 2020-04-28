@@ -84,9 +84,9 @@ function sum (arr) {
 }
 
 function divide (...nums){
-	return nums.reduce((total, num) => total / num
-	)
-}
+	return nums.reduce((total, num) =>
+	return total / num
+})
 
 function multiply (arr) {
 	return arr.reduce((total, num) => {

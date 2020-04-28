@@ -32,11 +32,14 @@ function pressOperationBtn(operationSign){
 	} else {
 		operand2 = display
 		operand1 = operate(operation, operand1, operand2)
-		operand2 = null
-		operation = operationSign
-		displayNumber(operand1)
 	}
 }
+
+
+
+/*
+
+*/
 
 function displayNumber(num){
 	let display = document.querySelector(`#display`)
@@ -50,20 +53,6 @@ function displayNumber(num){
 }
 
 function operate(operation, a, b){
-	switch (operation){
-		case `+`:
-			operation = add
-			break
-		case `-`:
-			operation = subtract
-			break;
-		case `*`:
-			operation = multiply
-			break
-		case `/`:
-			operation = divi
-			break;
-	}
   return(operation(a,b))
 }
 
@@ -81,11 +70,6 @@ function subtract (...nums) {
 
 function sum (arr) {
 	return add(...arr)
-}
-
-function divide (...nums){
-	return nums.reduce((total, num) => total / num
-	)
 }
 
 function multiply (arr) {
