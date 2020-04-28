@@ -1,6 +1,5 @@
 const MAX_DISPLAY_LENGTH = 15
-let overwriteIsOn = true
-let operation, operand1, operand2 = null
+let operators = []
 numButtons = document.querySelectorAll(`.numButton`)
 numButtons = Array.from(numButtons)
 numButtons.forEach(button => {
@@ -22,33 +21,15 @@ if i press an operator button
 				set display to operand1
 */
 
-function pressOperationBtn(operationSign){
-	let display = document.querySelector(`#display`).innerText
-	if(display == ``) return
-	if (operand1 == null){
-		operand1 = display
-		operation = operationSign
-		overwriteIsOn = true
-	} else {
-		operand2 = display
-	}
-}
-
-
-
 /*
+if i press equal
 
 */
 
 function displayNumber(num){
-	let display = document.querySelector(`#display`)
+	display = document.querySelector(`#display`)
 	if(display.innerText.length >= MAX_DISPLAY_LENGTH) return
-  if(overwriteIsOn){
-		display.innerText = num
-		overwriteIsOn = false
-	}else{
-		display.innerText += num
-	}
+  display.innerText += num
 }
 
 function operate(operation, a, b){

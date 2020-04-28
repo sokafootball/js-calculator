@@ -37,18 +37,14 @@ function pressOperationBtn(operationSign){
 
 
 /*
+if i press equal
 
 */
 
 function displayNumber(num){
 	let display = document.querySelector(`#display`)
 	if(display.innerText.length >= MAX_DISPLAY_LENGTH) return
-  if(overwriteIsOn){
-		display.innerText = num
-		overwriteIsOn = false
-	}else{
-		display.innerText += num
-	}
+  display.innerText += num
 }
 
 function operate(operation, a, b){

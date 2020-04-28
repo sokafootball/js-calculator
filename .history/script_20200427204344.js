@@ -1,5 +1,4 @@
 const MAX_DISPLAY_LENGTH = 15
-let overwriteIsOn = true
 let operation, operand1, operand2 = null
 numButtons = document.querySelectorAll(`.numButton`)
 numButtons = Array.from(numButtons)
@@ -28,7 +27,6 @@ function pressOperationBtn(operationSign){
 	if (operand1 == null){
 		operand1 = display
 		operation = operationSign
-		overwriteIsOn = true
 	} else {
 		operand2 = display
 	}
@@ -37,18 +35,14 @@ function pressOperationBtn(operationSign){
 
 
 /*
+if i press equal
 
 */
 
 function displayNumber(num){
 	let display = document.querySelector(`#display`)
 	if(display.innerText.length >= MAX_DISPLAY_LENGTH) return
-  if(overwriteIsOn){
-		display.innerText = num
-		overwriteIsOn = false
-	}else{
-		display.innerText += num
-	}
+  display.innerText += num
 }
 
 function operate(operation, a, b){

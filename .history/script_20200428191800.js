@@ -45,7 +45,6 @@ function displayNumber(num){
 	if(display.innerText.length >= MAX_DISPLAY_LENGTH) return
   if(overwriteIsOn){
 		display.innerText = num
-		overwriteIsOn = false
 	}else{
 		display.innerText += num
 	}
