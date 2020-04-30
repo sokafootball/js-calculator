@@ -1,5 +1,4 @@
 const MAX_DISPLAY_LENGTH = 15
-let display = document.querySelector(`#display`)
 let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 let numButtons = document.querySelectorAll(`.numButton`)
@@ -30,33 +29,17 @@ if i press the equal button
 		turn overwrite ON
 */
 
-/*
-if i press a num button
-	if overwrite is on
-		i put it on display replacing what's before
-		turn overwrite off
-	else
-		if the display is full
-			i return
-		i add to the current string in display
-	if operand1 is null
-		i save what's in the display in operand1
-	else
-		i save what's in the display in operand2
-*/
+
 
 function pressNumBtn(num){
-	displayNumber(Number(num))
-	saveNumber()
-}
-
-function saveNumber(){
-	if(operand1 == null){
-	  operand1 = Number(display.innerText)
-	}else{
-		operand2 = Number(display.innerText)
+	if (operand1 == null){
+		operand1 = Number(num)
+	} else {
+		operand2 = Number(num)
 	}
 }
+
+
 /*
 if i press an operation button
 	if operationVar is null
@@ -72,27 +55,39 @@ if i press an operation button
 */
 
 function pressOperationBtn(operationSign){
+	let display = document.querySelector(`#display`).innerText
 	if (operation == null){
 		saveOperation(operationSign)
 	}else{
 		if(operand1 != null && operand2 != null){
 			operand1 = operate(operation, operand1, operand2)
 			operand2 = null
-			display.innerText = operand1
+			display = operand1
 		}
 		saveOperation(operationSign)
 	}
 }
-
+/*
+if i press a num button
+	if overwrite is on
+		i put it on display replacing what's before
+		turn overwrite off
+	else
+		if the display is full
+			i return
+		i add to the current string in display
+	if operand1 is null
+		i save what's in the display in operand1
+	else
+		i save what's in the display in operand2
+*/
 function displayNumber(num){
+	let display = document.querySelector(`#display`)
   if(overwriteIsOn){
 		display.innerText = num
 		overwriteIsOn = false
 	}else{
-		if(display.innerText.length >= MAX_DISPLAY_LENGTH){
-			console.log(`The display is full!`)
-			return
-		}
+		if(display.innerText.length >= MAX_DISPLAY_LENGTH) console.log(`The display is full!`)
 		display.innerText += num
 	}
 }

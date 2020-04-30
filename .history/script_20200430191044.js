@@ -30,33 +30,18 @@ if i press the equal button
 		turn overwrite ON
 */
 
-/*
-if i press a num button
-	if overwrite is on
-		i put it on display replacing what's before
-		turn overwrite off
-	else
-		if the display is full
-			i return
-		i add to the current string in display
-	if operand1 is null
-		i save what's in the display in operand1
-	else
-		i save what's in the display in operand2
-*/
+
 
 function pressNumBtn(num){
-	displayNumber(Number(num))
-	saveNumber()
-}
-
-function saveNumber(){
+	displayNumber(num)
 	if(operand1 == null){
-	  operand1 = Number(display.innerText)
+	  operand1 = Number(display)
 	}else{
-		operand2 = Number(display.innerText)
+		operand2 = Number(display)
 	}
 }
+
+
 /*
 if i press an operation button
 	if operationVar is null
@@ -83,7 +68,20 @@ function pressOperationBtn(operationSign){
 		saveOperation(operationSign)
 	}
 }
-
+/*
+if i press a num button
+	if overwrite is on
+		i put it on display replacing what's before
+		turn overwrite off
+	else
+		if the display is full
+			i return
+		i add to the current string in display
+	if operand1 is null
+		i save what's in the display in operand1
+	else
+		i save what's in the display in operand2
+*/
 function displayNumber(num){
   if(overwriteIsOn){
 		display.innerText = num

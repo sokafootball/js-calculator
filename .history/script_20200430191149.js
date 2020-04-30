@@ -46,15 +46,15 @@ if i press a num button
 */
 
 function pressNumBtn(num){
-	displayNumber(Number(num))
+	displayNumber(num)
 	saveNumber()
 }
 
 function saveNumber(){
 	if(operand1 == null){
-	  operand1 = Number(display.innerText)
+	  operand1 = Number(display)
 	}else{
-		operand2 = Number(display.innerText)
+		operand2 = Number(display)
 	}
 }
 /*
