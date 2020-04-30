@@ -25,9 +25,6 @@ opButtons.forEach(button => {
 let equalButton = document.querySelector(`#equal-button`)
 equalButton.addEventListener(`click`, pressEqualBtn)
 
-let clearButton = document.querySelector(`#clear-button`)
-clearButton.addEventListener(`click`, pressClearBtn)
-
 
 /*
 if i press the equal button

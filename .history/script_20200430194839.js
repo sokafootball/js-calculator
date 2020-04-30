@@ -25,9 +25,6 @@ opButtons.forEach(button => {
 let equalButton = document.querySelector(`#equal-button`)
 equalButton.addEventListener(`click`, pressEqualBtn)
 
-let clearButton = document.querySelector(`#clear-button`)
-clearButton.addEventListener(`click`, pressClearBtn)
-
 
 /*
 if i press the equal button
@@ -44,7 +41,7 @@ if i press the equal button
 		turn overwrite ON
 */
 
-function pressClearBtn(){
+function clear(){
 	display.innerText = `0`
 	operation = null
 	operand1 = null

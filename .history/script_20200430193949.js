@@ -1,11 +1,3 @@
-/*
-TO DO
--mettere feedback visivo per display troppo pieno
--arrotondare i numeri decimali
--gestire divisione per zero
--gestire tasto cancella
--gestire tasto clear
-*/
 const MAX_DISPLAY_LENGTH = 15
 let display = document.querySelector(`#display`)
 let overwriteIsOn = true
@@ -25,9 +17,6 @@ opButtons.forEach(button => {
 let equalButton = document.querySelector(`#equal-button`)
 equalButton.addEventListener(`click`, pressEqualBtn)
 
-let clearButton = document.querySelector(`#clear-button`)
-clearButton.addEventListener(`click`, pressClearBtn)
-
 
 /*
 if i press the equal button
@@ -44,19 +33,11 @@ if i press the equal button
 		turn overwrite ON
 */
 
-function pressClearBtn(){
-	display.innerText = `0`
-	operation = null
-	operand1 = null
-	operand2 = null
-}
-
 function pressEqualBtn(){
 	if(operand1 != null && operand2 != null){
 		displayResult()
 		operation = null
 		overwriteIsOn = true
-		operand2 = null
 	}else{
 		operation = null
 		overwriteIsOn = true
@@ -126,7 +107,7 @@ function operate(operation, a, b){
 			console.log(`invalid operation`)
 			return
 	}
-  return Number(operation(a,b))
+  return Number(operate(operation,a,b))
 }
 
 function add (...nums) {
@@ -150,8 +131,8 @@ function divide (...nums){
 	)
 }
 
-function multiply (...nums) {
-	return nums.reduce((total, num) => {
+function multiply (arr) {
+	return arr.reduce((total, num) => {
 		return total * num
 	})
 }
