@@ -13,6 +13,19 @@ opButtons.forEach(button => {
   button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
 });
 
+/*
+if i press an operation button
+	if operationVar is null
+		i save the operation in operationVar
+		i turn overwrite ON
+	else
+		if both operands are populated
+			i save in operand1 the result of operand1, operand2 with operation in operationVar
+			i set operand2 a null
+			i put on display operand1
+		i save in operationVar the operation i pressed
+		i turn overwrite ON
+*/
 
 /*
 if i press the equal button
@@ -53,21 +66,6 @@ function pressNumBtn(num){
 		operand2 = Number(num)
 	}
 }
-
-
-/*
-if i press an operation button
-	if operationVar is null
-		i save the operation in operationVar
-		i turn overwrite ON
-	else
-		if both operands are populated
-			i save in operand1 the result of operand1, operand2 with operation in operationVar
-			i set operand2 a null
-			i put on display operand1
-		i save in operationVar the operation i pressed
-		i turn overwrite ON
-*/
 
 function pressOperationBtn(operationSign){
 	let display = document.querySelector(`#display`).innerText
