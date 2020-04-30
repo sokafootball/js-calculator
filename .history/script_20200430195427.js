@@ -4,6 +4,7 @@ TO DO
 -arrotondare i numeri decimali
 -gestire divisione per zero
 -gestire tasto cancella
+-gestire tasto clear
 */
 const MAX_DISPLAY_LENGTH = 15
 let display = document.querySelector(`#display`)
@@ -11,16 +12,31 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 addFunctionsToBtns()
 
-function pressClearBtn(){
-	clear()
+function addFunctionsToBtns(){
+	let numButtons = document.querySelectorAll(`.num-button`)
+	numButtons = Array.from(numButtons)
+	numButtons.forEach(button => {
+		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
+	});
+
+	let opButtons = document.querySelectorAll(`.operation-button`)
+	opButtons = Array.from(opButtons)
+	opButtons.forEach(button => {
+		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
+	});
+
+	let equalButton = document.querySelector(`#equal-button`)
+	equalButton.addEventListener(`click`, pressEqualBtn)
+
+	let clearButton = document.querySelector(`#clear-button`)
+	clearButton.addEventListener(`click`, pressClearBtn)
 }
 
-function clear(){
+function pressClearBtn(){
 	display.innerText = `0`
 	operation = null
 	operand1 = null
 	operand2 = null
-	overwriteIsOn = true
 }
 
 function pressEqualBtn(){
@@ -118,11 +134,6 @@ function sum (arr) {
 }
 
 function divide (...nums){
-	if (nums[1] == 0){
-		console.log(`you can't divide by 0!`)
-		clear()
-		return 0
-	}
 	return nums.reduce((total, num) => total / num
 	)
 }
@@ -137,25 +148,4 @@ function multiply (...nums) {
 function saveOperation(operationSign){
 	operation = operationSign
 	overwriteIsOn = true
-}
-
-
-function addFunctionsToBtns(){
-	let numButtons = document.querySelectorAll(`.num-button`)
-	numButtons = Array.from(numButtons)
-	numButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
-	});
-
-	let opButtons = document.querySelectorAll(`.operation-button`)
-	opButtons = Array.from(opButtons)
-	opButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
-	});
-
-	let equalButton = document.querySelector(`#equal-button`)
-	equalButton.addEventListener(`click`, pressEqualBtn)
-
-	let clearButton = document.querySelector(`#clear-button`)
-	clearButton.addEventListener(`click`, pressClearBtn)
 }

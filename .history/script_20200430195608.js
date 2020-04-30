@@ -12,10 +12,6 @@ let operation = null, operand1 = null, operand2 = null
 addFunctionsToBtns()
 
 function pressClearBtn(){
-	clear()
-}
-
-function clear(){
 	display.innerText = `0`
 	operation = null
 	operand1 = null
@@ -120,8 +116,7 @@ function sum (arr) {
 function divide (...nums){
 	if (nums[1] == 0){
 		console.log(`you can't divide by 0!`)
-		clear()
-		return 0
+		return
 	}
 	return nums.reduce((total, num) => total / num
 	)

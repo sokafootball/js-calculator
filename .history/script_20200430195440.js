@@ -4,6 +4,7 @@ TO DO
 -arrotondare i numeri decimali
 -gestire divisione per zero
 -gestire tasto cancella
+-gestire tasto clear
 */
 const MAX_DISPLAY_LENGTH = 15
 let display = document.querySelector(`#display`)
@@ -11,16 +12,12 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 addFunctionsToBtns()
 
-function pressClearBtn(){
-	clear()
-}
 
-function clear(){
+function pressClearBtn(){
 	display.innerText = `0`
 	operation = null
 	operand1 = null
 	operand2 = null
-	overwriteIsOn = true
 }
 
 function pressEqualBtn(){
@@ -118,11 +115,6 @@ function sum (arr) {
 }
 
 function divide (...nums){
-	if (nums[1] == 0){
-		console.log(`you can't divide by 0!`)
-		clear()
-		return 0
-	}
 	return nums.reduce((total, num) => total / num
 	)
 }

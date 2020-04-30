@@ -121,7 +121,7 @@ function divide (...nums){
 	if (nums[1] == 0){
 		console.log(`you can't divide by 0!`)
 		clear()
-		return 0
+		return
 	}
 	return nums.reduce((total, num) => total / num
 	)
