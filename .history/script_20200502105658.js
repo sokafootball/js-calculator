@@ -55,9 +55,34 @@ function pressNumBtn(num){
 }
 
 function saveNumber(){
-	if(operation == null)
-		operand1 =  Number(display.innerText)
-	else operand2 =  Number(display.innerText)
+	/*
+	if(operand1 == null){
+	  operand1 =  Number(display.innerText)
+	}else{
+		operand2 = Number(display.innerText)
+	}
+	*/
+
+	/*
+	se operand1 e' null
+		salvo in operand1
+	altrimenti
+		se overwrite e' off
+			salvo in operand1
+		altrimenti
+			salvo in operand2
+	*/
+
+	if(operand1 == null){
+		operand1 = Number(display.innerText)
+	else{
+		if(overwriteIsOn){
+			operand2 = Number(display.innerText)
+		}else{
+			operand1 = Number(display.innerText)
+		}
+	}
+	}
 }
 
 function pressOperationBtn(operationSign){
