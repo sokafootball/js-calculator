@@ -18,8 +18,6 @@ body{
 }
 
 #display{
-  animation-name: display-full;
-  animation-duration: 0.4s;
   border: 1px solid black;
   font-family: 'Barlow', sans-serif;
   font-size: 35px;
@@ -41,7 +39,7 @@ body{
     "numpad numpad numpad operators"
     ". clear clear .";
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 100px repeat(5, 1fr); /*first row is fixed to stop the border animation from taking space from other rows*/
+  grid-template-rows: repeat(6, 1fr);
   height: 600px;
   margin-top: 130px;
   width: 500px;
@@ -70,10 +68,6 @@ body{
 }
 
 @keyframes display-full{
-  0% {border: 1px solid black;}
-  50% {
-    border: 2px solid red;
-    box-shadow: 0px 0px 6px 1px red;
-  }
-  100% {border: 1px solid black;}
+  from {border: 1px solid black;}
+  to {border: 2px solid red}
 }

@@ -41,7 +41,7 @@ body{
     "numpad numpad numpad operators"
     ". clear clear .";
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 100px repeat(5, 1fr); /*first row is fixed to stop the border animation from taking space from other rows*/
+  grid-template-rows: 40px repeat(5, 1fr);
   height: 600px;
   margin-top: 130px;
   width: 500px;
