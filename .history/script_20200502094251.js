@@ -1,11 +1,10 @@
 /*
 TO DO
 -mettere feedback visivo per display troppo pieno
+-arrotondare i numeri decimali
 -gestire tasto cancella
 */
 const MAX_DISPLAY_LENGTH = 15
-const MAX_DECIMALS = 3
-const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserved for the exponential notation and the dot
 let display = document.querySelector(`#display`)
 let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
@@ -55,9 +54,11 @@ function pressNumBtn(num){
 }
 
 function saveNumber(){
-	if(operation == null)
-		operand1 =  Number(display.innerText)
-	else operand2 =  Number(display.innerText)
+	if(operand1 == null){
+	  operand1 = Number(display.innerText)
+	}else{
+		operand2 = Number(display.innerText)
+	}
 }
 
 function pressOperationBtn(operationSign){
@@ -85,7 +86,6 @@ function displayNumber(num){
 }
 
 function operate(operation, a, b){
-	let result = null
 	switch (operation){
 		case `+`:
 			operation = add
@@ -103,10 +103,7 @@ function operate(operation, a, b){
 			console.log(`invalid operation`)
 			return
 	}
-	result = Number(operation(a,b))
-	result = truncateDecimals(result)
-	result = truncateIntegers(result)
-  return result
+  return Number(operation(a,b))
 }
 
 function add (...nums) {
@@ -166,14 +163,4 @@ function addFunctionsToBtns(){
 
 	let clearButton = document.querySelector(`#clear-button`)
 	clearButton.addEventListener(`click`, pressClearBtn)
-}
-
-function truncateDecimals(num){
-	if((num % 1).toString().length > MAX_DECIMALS) return Number(num).toFixed(MAX_DECIMALS)
-	return num
-}
-
-function truncateIntegers(num){
-	if(num.toString().length <= MAX_DISPLAY_LENGTH) return num
-	return num.toExponential(EXPONENTIAL_NOTATION_DIGITS)
 }

@@ -55,9 +55,11 @@ function pressNumBtn(num){
 }
 
 function saveNumber(){
-	if(operation == null)
-		operand1 =  Number(display.innerText)
-	else operand2 =  Number(display.innerText)
+	if(operand1 == null){
+	  operand1 = Number(display.innerText)
+	}else{
+		operand2 = Number(display.innerText)
+	}
 }
 
 function pressOperationBtn(operationSign){
