@@ -106,7 +106,7 @@ function operate(operation, a, b){
 			return
 	}
 	result = Number(operation(a,b))
-	if((result % 1).toString().length > MAX_DECIMALS) return Number(result).toFixed(MAX_DECIMALS)
+	if((result % 1).toString().length > )
   return result
 }
 

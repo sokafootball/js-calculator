@@ -5,7 +5,7 @@ TO DO
 -gestire tasto cancella
 */
 const MAX_DISPLAY_LENGTH = 15
-const MAX_DECIMALS = 3
+const N_OF_DECIMALS = 3
 let display = document.querySelector(`#display`)
 let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
@@ -87,7 +87,6 @@ function displayNumber(num){
 }
 
 function operate(operation, a, b){
-	let result = null
 	switch (operation){
 		case `+`:
 			operation = add
@@ -105,9 +104,7 @@ function operate(operation, a, b){
 			console.log(`invalid operation`)
 			return
 	}
-	result = Number(operation(a,b))
-	if((result % 1).toString().length > MAX_DECIMALS) return Number(result).toFixed(MAX_DECIMALS)
-  return result
+  return Number(operation(a,b)).toFixed(N_OF_DECIMALS)
 }
 
 function add (...nums) {
@@ -167,9 +164,4 @@ function addFunctionsToBtns(){
 
 	let clearButton = document.querySelector(`#clear-button`)
 	clearButton.addEventListener(`click`, pressClearBtn)
-}
-
-function truncateDecimals(num){
-//se il numero ha piu' di MAX_DECIMALS
-	//ritorna il numero con toFixed(MAX_DECIMALS)
 }

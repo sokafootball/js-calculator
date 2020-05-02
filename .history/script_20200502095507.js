@@ -5,7 +5,7 @@ TO DO
 -gestire tasto cancella
 */
 const MAX_DISPLAY_LENGTH = 15
-const MAX_DECIMALS = 3
+const N_OF_DECIMALS = 3
 let display = document.querySelector(`#display`)
 let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
@@ -106,7 +106,6 @@ function operate(operation, a, b){
 			return
 	}
 	result = Number(operation(a,b))
-	if((result % 1).toString().length > MAX_DECIMALS) return Number(result).toFixed(MAX_DECIMALS)
   return result
 }
 
@@ -170,6 +169,6 @@ function addFunctionsToBtns(){
 }
 
 function truncateDecimals(num){
-//se il numero ha piu' di MAX_DECIMALS
-	//ritorna il numero con toFixed(MAX_DECIMALS)
+//se il numero ha piu' di N_OF_DECIMALS
+	//ritorna il numero con toFixed(N_OF_DECIMALS)
 }
