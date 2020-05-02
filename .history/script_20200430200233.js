@@ -38,7 +38,7 @@ function pressEqualBtn(){
 		operation = null
 		overwriteIsOn = true
 		operand2 = null
-		display.innerText = operand1 == null ? `0` : operand1
+		display.innerText = operand1
 	}
 }
 

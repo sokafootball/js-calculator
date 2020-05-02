@@ -10,10 +10,8 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 addFunctionsToBtns()
 
-function pressDeleteBtn(){
-	if(display.innerText.length == 0) return
-	display.innerText = display.innerText.slice(0, -1);
-
+function deleteDigit(){
+	display.innerText.slice(0, -1);
 }
 
 function pressClearBtn(){
@@ -38,7 +36,7 @@ function pressEqualBtn(){
 		operation = null
 		overwriteIsOn = true
 		operand2 = null
-		display.innerText = operand1 == null ? `0` : operand1
+		display.innerText = operand1
 	}
 }
 
