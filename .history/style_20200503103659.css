@@ -7,7 +7,7 @@ body{
 
 .display-full{
   animation-name: display-full;
-  animation-duration: 0.3s;
+  animation-duration: 0.2s;
 }
 
 #backspace{
@@ -48,6 +48,10 @@ body{
   height: 600px;
   margin-top: 130px;
   width: 500px;
+}
+
+#css-info-container{
+  display: none;
 }
 
 #footer{

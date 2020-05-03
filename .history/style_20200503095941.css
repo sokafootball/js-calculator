@@ -5,11 +5,6 @@ body{
   justify-content: space-between;
 }
 
-.display-full{
-  animation-name: display-full;
-  animation-duration: 0.3s;
-}
-
 #backspace{
   grid-area: backspace;
 }
@@ -23,11 +18,14 @@ body{
 }
 
 #display{
+  animation-name: display-full;
+  animation-duration: 0.4s;
   border: 1px solid black;
+  box-sizing: border-box;
   font-family: 'Barlow', sans-serif;
   font-size: 35px;
   grid-area: display;
-  line-height: 95px;
+  /*line-height: 95px;*/
   padding-right: 5px;
   text-align: right;
   vertical-align: middle;
@@ -77,8 +75,6 @@ body{
   50% {
     border: 2px solid red;
     box-shadow: 0px 0px 6px 1px red;
-    line-height: 93px;
-    padding-right: 4px;
   }
   100% {border: 1px solid black;}
 }

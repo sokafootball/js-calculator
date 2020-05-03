@@ -3,7 +3,7 @@ TO DO
 -mettere feedback visivo per display troppo pieno
 -gestire tasto cancella
 */
-const MAX_DISPLAY_LENGTH = 18
+const MAX_DISPLAY_LENGTH = 2
 const MAX_DECIMALS = 3
 const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserved for the exponential notation and the dot
 let display = document.querySelector(`#display`)
@@ -84,18 +84,12 @@ function displayNumber(num){
 	}
 }
 
-function converDuration(durationString){
-	let duration = Number(durationString.replace(`s`, ``))
-	console.log(duration)
-	return duration * 1000
-}
-
 function animateDisplay(){
-	let animDurationString = getComputedStyle(document.querySelector(`.display-full`)).animationDuration
-	const ANIM_DURATION = converDuration(animDurationString)
+	let animationDurationString = getComputedStyle(document.querySelector(`.display-full`)).animationDuration
+	console.log(ANIMATION_DURATION)
 	display.classList.remove(`display-full`)
 	display.classList.add(`display-full`)
-	setTimeout(() => display.classList.remove(`display-full`), ANIM_DURATION);
+	setTimeout(() => display.classList.remove(`display-full`), 400);
 }
 
 function operate(operation, a, b){
