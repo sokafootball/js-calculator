@@ -7,7 +7,7 @@ body{
 
 .display-full{
   animation-name: display-full;
-  animation-duration: 0.3s;
+  animation-duration: 0.1s;
 }
 
 #backspace{
