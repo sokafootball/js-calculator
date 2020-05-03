@@ -1,6 +1,6 @@
 /*
 TO DO
-
+-gestire tasto cancella
 */
 const MAX_DISPLAY_LENGTH = 18
 const MAX_DECIMALS = 3
@@ -8,12 +8,12 @@ const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserv
 let display = document.querySelector(`#display`)
 let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
-
 addFunctionsToBtns()
 
 function pressDeleteBtn(){
 	if(display.innerText.length == 0) return
 	display.innerText = display.innerText.slice(0, -1);
+
 }
 
 function pressClearBtn(){
@@ -154,6 +154,7 @@ function multiply (...nums) {
 	})
 }
 
+
 function saveOperation(operationSign){
 	operation = operationSign
 	overwriteIsOn = true
@@ -204,4 +205,7 @@ function pressBackspaceBtn(){
 		display.innerText = displayArray.join(``)
 	}
 	saveNumber()
+		//display 0
+	//else
+		//remove last digit of number
 }
