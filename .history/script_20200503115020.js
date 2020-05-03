@@ -107,9 +107,6 @@ function pressBackspaceBtn(){
 	saveNumber()
 }
 
-function pressDecimalBtn(){
-}
-
 function pressDeleteBtn(){
 	if(display.innerText.length == 0) return
 	display.innerText = display.innerText.slice(0, -1);

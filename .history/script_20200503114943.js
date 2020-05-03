@@ -16,32 +16,6 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
-
-function addFunctionsToBtns(){
-	let numButtons = document.querySelectorAll(`.num-button`)
-	numButtons = Array.from(numButtons)
-	numButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
-	});
-
-	let opButtons = document.querySelectorAll(`.operation-button`)
-	opButtons = Array.from(opButtons)
-	opButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
-	});
-
-	let equalButton = document.querySelector(`#equal-button`)
-	equalButton.addEventListener(`click`, pressEqualBtn)
-
-	let clearButton = document.querySelector(`#clear-button`)
-	clearButton.addEventListener(`click`, pressClearBtn)
-
-	let bckSpaceBtn = document.querySelector(`#backspace`)
-	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
-
-	let decimalBtn = document.querySelector(`#decimal-button`)
-	decimalBtn.addEventListener(`click`, pressDecimalBtn)
-}
 //#endregion
 
 //#region SUPPORT FUNCTIONS
@@ -105,9 +79,6 @@ function pressBackspaceBtn(){
 		display.innerText = displayArray.join(``)
 	}
 	saveNumber()
-}
-
-function pressDecimalBtn(){
 }
 
 function pressDeleteBtn(){

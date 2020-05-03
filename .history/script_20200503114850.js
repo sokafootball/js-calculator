@@ -16,7 +16,9 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
+//#endregion
 
+//#region SUPPORT FUNCTIONS
 function addFunctionsToBtns(){
 	let numButtons = document.querySelectorAll(`.num-button`)
 	numButtons = Array.from(numButtons)
@@ -38,13 +40,8 @@ function addFunctionsToBtns(){
 
 	let bckSpaceBtn = document.querySelector(`#backspace`)
 	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
-
-	let decimalBtn = document.querySelector(`#decimal-button`)
-	decimalBtn.addEventListener(`click`, pressDecimalBtn)
 }
-//#endregion
 
-//#region SUPPORT FUNCTIONS
 function clear(){
 	display.innerText = `0`
 	operation = null
@@ -105,9 +102,6 @@ function pressBackspaceBtn(){
 		display.innerText = displayArray.join(``)
 	}
 	saveNumber()
-}
-
-function pressDecimalBtn(){
 }
 
 function pressDeleteBtn(){

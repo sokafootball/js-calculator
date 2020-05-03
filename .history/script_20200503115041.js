@@ -108,6 +108,7 @@ function pressBackspaceBtn(){
 }
 
 function pressDecimalBtn(){
+	console.log(`test`)
 }
 
 function pressDeleteBtn(){
