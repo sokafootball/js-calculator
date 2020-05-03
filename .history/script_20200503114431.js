@@ -1,11 +1,7 @@
 /*
-CODE BY LAURENT CAPELLO
---
 TO DO
---
-*/
 
-//#region STARTUP
+*/
 const MAX_DISPLAY_LENGTH = 18
 const MAX_DECIMALS = 3
 const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserved for the exponential notation and the dot
@@ -14,7 +10,6 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
-//#endregion
 
 //#region SUPPORT FUNCTIONS
 function addFunctionsToBtns(){
@@ -87,21 +82,11 @@ function truncateIntegers(num){
 	if(num.toString().length <= MAX_DISPLAY_LENGTH) return num
 	return num.toExponential(EXPONENTIAL_NOTATION_DIGITS)
 }
+
+
 //#endregion
 
 //#region BUTTONS FUNCTIONS
-function pressBackspaceBtn(){
-	//if display length is 1
-	if(display.innerText.length == 1){
-		display.innerText = `0`
-	}else{
-		let displayArray = Array.from(display.innerText)
-		displayArray.pop()
-		display.innerText = displayArray.join(``)
-	}
-	saveNumber()
-}
-
 function pressDeleteBtn(){
 	if(display.innerText.length == 0) return
 	display.innerText = display.innerText.slice(0, -1);
@@ -227,3 +212,14 @@ function animateDisplay(){
 
 
 
+function pressBackspaceBtn(){
+	//if display length is 1
+	if(display.innerText.length == 1){
+		display.innerText = `0`
+	}else{
+		let displayArray = Array.from(display.innerText)
+		displayArray.pop()
+		display.innerText = displayArray.join(``)
+	}
+	saveNumber()
+}

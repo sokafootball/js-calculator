@@ -15,7 +15,6 @@ let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
 //#endregion
-
 //#region SUPPORT FUNCTIONS
 function addFunctionsToBtns(){
 	let numButtons = document.querySelectorAll(`.num-button`)

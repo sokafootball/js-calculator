@@ -1,11 +1,7 @@
 /*
-CODE BY LAURENT CAPELLO
---
 TO DO
---
-*/
 
-//#region STARTUP
+*/
 const MAX_DISPLAY_LENGTH = 18
 const MAX_DECIMALS = 3
 const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserved for the exponential notation and the dot
@@ -14,31 +10,10 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
-//#endregion
 
-//#region SUPPORT FUNCTIONS
-function addFunctionsToBtns(){
-	let numButtons = document.querySelectorAll(`.num-button`)
-	numButtons = Array.from(numButtons)
-	numButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
-	});
-
-	let opButtons = document.querySelectorAll(`.operation-button`)
-	opButtons = Array.from(opButtons)
-	opButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
-	});
-
-	let equalButton = document.querySelector(`#equal-button`)
-	equalButton.addEventListener(`click`, pressEqualBtn)
-
-	let clearButton = document.querySelector(`#clear-button`)
-	clearButton.addEventListener(`click`, pressClearBtn)
-
-	let bckSpaceBtn = document.querySelector(`#backspace`)
-	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
-}
+/////////////////////
+//SUPPORT FUNCTIONS//
+/////////////////////
 
 function clear(){
 	display.innerText = `0`
@@ -78,69 +53,10 @@ function saveOperation(operationSign){
 	overwriteIsOn = true
 }
 
-function truncateDecimals(num){
-	if((num % 1).toString().length > MAX_DECIMALS) return Number(num).toFixed(MAX_DECIMALS)
-	return num
-}
-
-function truncateIntegers(num){
-	if(num.toString().length <= MAX_DISPLAY_LENGTH) return num
-	return num.toExponential(EXPONENTIAL_NOTATION_DIGITS)
-}
-//#endregion
-
 //#region BUTTONS FUNCTIONS
-function pressBackspaceBtn(){
-	//if display length is 1
-	if(display.innerText.length == 1){
-		display.innerText = `0`
-	}else{
-		let displayArray = Array.from(display.innerText)
-		displayArray.pop()
-		display.innerText = displayArray.join(``)
-	}
-	saveNumber()
-}
 
-function pressDeleteBtn(){
-	if(display.innerText.length == 0) return
-	display.innerText = display.innerText.slice(0, -1);
-}
-
-function pressClearBtn(){
-	clear()
-}
-
-function pressEqualBtn(){
-	if(operand1 != null && operand2 != null){
-		displayResult()
-		operation = null
-		overwriteIsOn = true
-		operand2 = null
-	}else{
-		operation = null
-		overwriteIsOn = true
-		operand2 = null
-		display.innerText = operand1 == null ? `0` : operand1
-	}
-}
-
-function pressNumBtn(num){
-	displayNumber(Number(num))
-	saveNumber()
-}
-
-function pressOperationBtn(operationSign){
-	if (operation == null){
-		saveOperation(operationSign)
-	}else{
-		if(operand1 != null && operand2 != null){
-			displayResult()
-		}
-		saveOperation(operationSign)
-	}
-}
 //#endregion
+
 
 //#region MATH FUNCTIONS
 function operate(operation, a, b){
@@ -200,7 +116,44 @@ function multiply (...nums) {
 	})
 }
 //#endregion
+function pressDeleteBtn(){
+	if(display.innerText.length == 0) return
+	display.innerText = display.innerText.slice(0, -1);
+}
 
+function pressClearBtn(){
+	clear()
+}
+
+function pressEqualBtn(){
+	if(operand1 != null && operand2 != null){
+		displayResult()
+		operation = null
+		overwriteIsOn = true
+		operand2 = null
+	}else{
+		operation = null
+		overwriteIsOn = true
+		operand2 = null
+		display.innerText = operand1 == null ? `0` : operand1
+	}
+}
+
+function pressNumBtn(num){
+	displayNumber(Number(num))
+	saveNumber()
+}
+
+function pressOperationBtn(operationSign){
+	if (operation == null){
+		saveOperation(operationSign)
+	}else{
+		if(operand1 != null && operand2 != null){
+			displayResult()
+		}
+		saveOperation(operationSign)
+	}
+}
 //#region DISPLAY ANIMATION FUNCTIONS
 function convertDuration(durationString){
 	let duration = Number(durationString.replace(`s`, ``))
@@ -222,8 +175,48 @@ function animateDisplay(){
 
 
 
+function addFunctionsToBtns(){
+	let numButtons = document.querySelectorAll(`.num-button`)
+	numButtons = Array.from(numButtons)
+	numButtons.forEach(button => {
+		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
+	});
+
+	let opButtons = document.querySelectorAll(`.operation-button`)
+	opButtons = Array.from(opButtons)
+	opButtons.forEach(button => {
+		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
+	});
+
+	let equalButton = document.querySelector(`#equal-button`)
+	equalButton.addEventListener(`click`, pressEqualBtn)
+
+	let clearButton = document.querySelector(`#clear-button`)
+	clearButton.addEventListener(`click`, pressClearBtn)
+
+	let bckSpaceBtn = document.querySelector(`#backspace`)
+	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
+}
+
+function truncateDecimals(num){
+	if((num % 1).toString().length > MAX_DECIMALS) return Number(num).toFixed(MAX_DECIMALS)
+	return num
+}
+
+function truncateIntegers(num){
+	if(num.toString().length <= MAX_DISPLAY_LENGTH) return num
+	return num.toExponential(EXPONENTIAL_NOTATION_DIGITS)
+}
 
 
-
-
-
+function pressBackspaceBtn(){
+	//if display length is 1
+	if(display.innerText.length == 1){
+		display.innerText = `0`
+	}else{
+		let displayArray = Array.from(display.innerText)
+		displayArray.pop()
+		display.innerText = displayArray.join(``)
+	}
+	saveNumber()
+}
