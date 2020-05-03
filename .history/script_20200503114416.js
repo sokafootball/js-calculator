@@ -1,11 +1,7 @@
 /*
-CODE BY LAURENT CAPELLO
---
 TO DO
---
-*/
 
-//#region STARTUP
+*/
 const MAX_DISPLAY_LENGTH = 18
 const MAX_DECIMALS = 3
 const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserved for the exponential notation and the dot
@@ -14,32 +10,8 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
-//#endregion
 
 //#region SUPPORT FUNCTIONS
-function addFunctionsToBtns(){
-	let numButtons = document.querySelectorAll(`.num-button`)
-	numButtons = Array.from(numButtons)
-	numButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
-	});
-
-	let opButtons = document.querySelectorAll(`.operation-button`)
-	opButtons = Array.from(opButtons)
-	opButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
-	});
-
-	let equalButton = document.querySelector(`#equal-button`)
-	equalButton.addEventListener(`click`, pressEqualBtn)
-
-	let clearButton = document.querySelector(`#clear-button`)
-	clearButton.addEventListener(`click`, pressClearBtn)
-
-	let bckSpaceBtn = document.querySelector(`#backspace`)
-	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
-}
-
 function clear(){
 	display.innerText = `0`
 	operation = null
@@ -90,18 +62,6 @@ function truncateIntegers(num){
 //#endregion
 
 //#region BUTTONS FUNCTIONS
-function pressBackspaceBtn(){
-	//if display length is 1
-	if(display.innerText.length == 1){
-		display.innerText = `0`
-	}else{
-		let displayArray = Array.from(display.innerText)
-		displayArray.pop()
-		display.innerText = displayArray.join(``)
-	}
-	saveNumber()
-}
-
 function pressDeleteBtn(){
 	if(display.innerText.length == 0) return
 	display.innerText = display.innerText.slice(0, -1);
@@ -222,8 +182,40 @@ function animateDisplay(){
 
 
 
+function addFunctionsToBtns(){
+	let numButtons = document.querySelectorAll(`.num-button`)
+	numButtons = Array.from(numButtons)
+	numButtons.forEach(button => {
+		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
+	});
+
+	let opButtons = document.querySelectorAll(`.operation-button`)
+	opButtons = Array.from(opButtons)
+	opButtons.forEach(button => {
+		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
+	});
+
+	let equalButton = document.querySelector(`#equal-button`)
+	equalButton.addEventListener(`click`, pressEqualBtn)
+
+	let clearButton = document.querySelector(`#clear-button`)
+	clearButton.addEventListener(`click`, pressClearBtn)
+
+	let bckSpaceBtn = document.querySelector(`#backspace`)
+	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
+}
 
 
 
 
-
+function pressBackspaceBtn(){
+	//if display length is 1
+	if(display.innerText.length == 1){
+		display.innerText = `0`
+	}else{
+		let displayArray = Array.from(display.innerText)
+		displayArray.pop()
+		display.innerText = displayArray.join(``)
+	}
+	saveNumber()
+}

@@ -1,11 +1,7 @@
 /*
-CODE BY LAURENT CAPELLO
---
 TO DO
---
-*/
 
-//#region STARTUP
+*/
 const MAX_DISPLAY_LENGTH = 18
 const MAX_DECIMALS = 3
 const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserved for the exponential notation and the dot
@@ -14,7 +10,6 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
-//#endregion
 
 //#region SUPPORT FUNCTIONS
 function addFunctionsToBtns(){
