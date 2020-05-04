@@ -4,7 +4,7 @@ CODE BY LAURENT CAPELLO
 TO DO
 -add keyboard support
 -add decimals insert function
--fix numbers not replacing zero after backspacing all digits
+--
 */
 
 //#region STARTUP
@@ -55,11 +55,7 @@ function clear(){
 
 function displayNumber(num){
   if(overwriteIsOn){
-		if(num == `.`){
-			display.innerText += num
-		}else{
-			display.innerText = num
-		}
+		display.innerText = num
 		overwriteIsOn = false
 	}else{
 		if(display.innerText.length >= MAX_DISPLAY_LENGTH){
@@ -113,9 +109,9 @@ function pressBackspaceBtn(){
 
 function pressDecimalBtn(){
 	//add dot to the right of the number on display
-	if (display.innerText.includes(`.`)) return
-	displayNumber(`.`)
-	saveNumber()
+	let number = display.innerText
+	if (number[number.length - 1] == `.`) return
+	displayNumber(number)
 }
 
 function pressDeleteBtn(){
@@ -181,7 +177,7 @@ function operate(operation, a, b){
 	result = Number(operation(a,b))
 	result = truncateDecimals(result)
 	result = truncateIntegers(result)
-  return Number(result)
+  return result
 }
 
 function add (...nums) {

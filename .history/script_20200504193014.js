@@ -55,11 +55,7 @@ function clear(){
 
 function displayNumber(num){
   if(overwriteIsOn){
-		if(num == `.`){
-			display.innerText += num
-		}else{
-			display.innerText = num
-		}
+		display.innerText = num
 		overwriteIsOn = false
 	}else{
 		if(display.innerText.length >= MAX_DISPLAY_LENGTH){
@@ -113,8 +109,10 @@ function pressBackspaceBtn(){
 
 function pressDecimalBtn(){
 	//add dot to the right of the number on display
-	if (display.innerText.includes(`.`)) return
-	displayNumber(`.`)
+	let number = display.innerText
+	if (number.includes(`.`)) return
+	number += `.`
+	displayNumber(number)
 	saveNumber()
 }
 
