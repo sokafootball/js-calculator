@@ -4,7 +4,7 @@ CODE BY LAURENT CAPELLO
 TO DO
 -add keyboard support
 -add decimals insert function
--fix numbers not replacing zero after backspacing all digits
+--
 */
 
 //#region STARTUP
@@ -16,7 +16,9 @@ let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
+//#endregion
 
+//#region SUPPORT FUNCTIONS
 function addFunctionsToBtns(){
 	let numButtons = document.querySelectorAll(`.num-button`)
 	numButtons = Array.from(numButtons)
@@ -38,13 +40,8 @@ function addFunctionsToBtns(){
 
 	let bckSpaceBtn = document.querySelector(`#backspace`)
 	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
-
-	let decimalBtn = document.querySelector(`#decimal-button`)
-	decimalBtn.addEventListener(`click`, pressDecimalBtn)
 }
-//#endregion
 
-//#region SUPPORT FUNCTIONS
 function clear(){
 	display.innerText = `0`
 	operation = null
@@ -55,11 +52,7 @@ function clear(){
 
 function displayNumber(num){
   if(overwriteIsOn){
-		if(num == `.`){
-			display.innerText += num
-		}else{
-			display.innerText = num
-		}
+		display.innerText = num
 		overwriteIsOn = false
 	}else{
 		if(display.innerText.length >= MAX_DISPLAY_LENGTH){
@@ -108,13 +101,6 @@ function pressBackspaceBtn(){
 		displayArray.pop()
 		display.innerText = displayArray.join(``)
 	}
-	saveNumber()
-}
-
-function pressDecimalBtn(){
-	//add dot to the right of the number on display
-	if (display.innerText.includes(`.`)) return
-	displayNumber(`.`)
 	saveNumber()
 }
 
@@ -181,7 +167,7 @@ function operate(operation, a, b){
 	result = Number(operation(a,b))
 	result = truncateDecimals(result)
 	result = truncateIntegers(result)
-  return Number(result)
+  return result
 }
 
 function add (...nums) {

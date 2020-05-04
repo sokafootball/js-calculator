@@ -55,11 +55,7 @@ function clear(){
 
 function displayNumber(num){
   if(overwriteIsOn){
-		if(num == `.`){
-			display.innerText += num
-		}else{
-			display.innerText = num
-		}
+		display.innerText = num
 		overwriteIsOn = false
 	}else{
 		if(display.innerText.length >= MAX_DISPLAY_LENGTH){
