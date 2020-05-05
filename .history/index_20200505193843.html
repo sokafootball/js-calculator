@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>Javascript Calculator - By Laurent Capello</title>
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <!--<link rel="stylesheet" type="text/css" href="wireframe.css">-->
@@ -21,14 +22,14 @@
       <button class="button num-button">8</button>
       <button class="button num-button">9</button>
       <button class="button num-button">0</button>
-      <button class="button">.</button>
+      <button id="decimal-button" class="button">.</button>
       <button id="equal-button" class="button">=</button>
     </div>
     <div id="operators">
-      <button class="button opButton">+</button>
-      <button class="button opButton">-</button>
-      <button class="button opButton">*</button>
-      <button class="button opButton">/</button>
+      <button class="button operation-button">+</button>
+      <button class="button operation-button">-</button>
+      <button class="button operation-button">*</button>
+      <button class="button operation-button">/</button>
     </div>
     <button id="clear-button" class="button">Clear</button>
   </div>
@@ -36,6 +37,7 @@
 <footer id="footer">
   <p>A page by <span id="signature">Laurent Capello</span></p>
 </footer>
+<div id="hidden-element" class="display-full" style="display: none"></div>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
