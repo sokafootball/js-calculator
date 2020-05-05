@@ -29,7 +29,7 @@ body{
 
 #display{
   border: 1px solid black;
-  font-family: 'calcFont', sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-size: 35px;
   grid-area: display;
   line-height: 95px;
