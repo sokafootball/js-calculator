@@ -12,7 +12,7 @@ const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserv
 let display = document.querySelector(`#display`)
 let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
-
+document.onkeydown = (e) => filterKeyPress(e)
 addFunctionsToBtns()
 
 function addFunctionsToBtns(){
@@ -40,7 +40,7 @@ function addFunctionsToBtns(){
 	let decimalBtn = document.querySelector(`#decimal-button`)
 	decimalBtn.addEventListener(`click`, pressDecimalBtn)
 
-	document.onkeydown = (e) => filterKeyPress(e)
+
 }
 
 function filterKeyPress(e){

@@ -12,7 +12,7 @@ const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserv
 let display = document.querySelector(`#display`)
 let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
-
+document.onkeypress = (e) => filterKeyPress(e)
 addFunctionsToBtns()
 
 function addFunctionsToBtns(){
@@ -40,20 +40,20 @@ function addFunctionsToBtns(){
 	let decimalBtn = document.querySelector(`#decimal-button`)
 	decimalBtn.addEventListener(`click`, pressDecimalBtn)
 
-	document.onkeydown = (e) => filterKeyPress(e)
+
 }
 
 function filterKeyPress(e){
-	if (e.which <= 105 && e.which >= 96){
+	console.log(e.which)
+	console.log(e.key)
+	if (e.which <= 57 && e.which >= 48){
 		pressNumBtn(Number(e.key))
-	} else if (e.which == 106 || e.which == 107 || e.which == 109 || e.which == 111) {
+	} else if (e.which == 43 || e.which == 42 || e.which == 45 || e.which == 47) {
 		pressOperationBtn(e.key)
 	} else if (e.which == 13){
 		pressEqualBtn()
-	} else if (e.which == 110){
+	} else if (e.which == 46){
 		pressDecimalBtn()
-	} else if (e.which == 8){
-		pressDeleteBtn()
 	}
 }
 //#endregion
