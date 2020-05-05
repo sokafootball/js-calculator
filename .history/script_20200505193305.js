@@ -54,7 +54,7 @@ function filterKeyPress(e){
 	} else if (e.which == 110){
 		pressDecimalBtn()
 	} else if (e.which == 8){
-		pressBackspaceBtn()
+		pressDeleteBtn()
 	}
 }
 //#endregion
@@ -132,6 +132,11 @@ function pressDecimalBtn(){
 	if (display.innerText.includes(`.`)) return
 	displayNumber(`.`)
 	saveNumber()
+}
+
+function pressDeleteBtn(){
+	if(display.innerText.length == 0) return
+	display.innerText = display.innerText.slice(0, -1);
 }
 
 function pressClearBtn(){
@@ -231,6 +236,7 @@ function multiply (...nums) {
 //#region DISPLAY ANIMATION FUNCTIONS
 function convertDuration(durationString){
 	let duration = Number(durationString.replace(`s`, ``))
+	console.log(duration)
 	return duration * 1000
 }
 

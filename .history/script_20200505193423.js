@@ -54,7 +54,7 @@ function filterKeyPress(e){
 	} else if (e.which == 110){
 		pressDecimalBtn()
 	} else if (e.which == 8){
-		pressBackspaceBtn()
+		pressDeleteBtn()
 	}
 }
 //#endregion
@@ -132,6 +132,13 @@ function pressDecimalBtn(){
 	if (display.innerText.includes(`.`)) return
 	displayNumber(`.`)
 	saveNumber()
+}
+
+function pressDeleteBtn(){
+	console.log(`display before = ${display.innerText}`)
+	if(display.innerText.length == 0) return
+	display.innerText = display.innerText.slice(0, -1);
+	console.log(`display after = ${display.innerText}`)
 }
 
 function pressClearBtn(){

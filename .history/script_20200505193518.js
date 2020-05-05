@@ -134,6 +134,13 @@ function pressDecimalBtn(){
 	saveNumber()
 }
 
+function pressDeleteBtn(){
+	console.log(`display before = ${display.innerText}`)
+	if(display.innerText.length == 0) return
+	display.innerText = display.innerText.slice(0, -1);
+	console.log(`display after = ${display.innerText}`)
+}
+
 function pressClearBtn(){
 	clear()
 }
