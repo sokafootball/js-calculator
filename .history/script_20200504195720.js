@@ -40,21 +40,7 @@ function addFunctionsToBtns(){
 	let decimalBtn = document.querySelector(`#decimal-button`)
 	decimalBtn.addEventListener(`click`, pressDecimalBtn)
 
-	document.onkeydown = (e) => filterKeyPress(e)
-}
-
-function filterKeyPress(e){
-	if (e.which <= 105 && e.which >= 96){
-		pressNumBtn(Number(e.key))
-	} else if (e.which == 106 || e.which == 107 || e.which == 109 || e.which == 111) {
-		pressOperationBtn(e.key)
-	} else if (e.which == 13){
-		pressEqualBtn()
-	} else if (e.which == 110){
-		pressDecimalBtn()
-	} else if (e.which == 8){
-		pressDeleteBtn()
-	}
+	document.onkeypress = (e) => filterKeyPress(e.key)
 }
 //#endregion
 

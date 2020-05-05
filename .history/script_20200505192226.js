@@ -41,6 +41,7 @@ function addFunctionsToBtns(){
 	decimalBtn.addEventListener(`click`, pressDecimalBtn)
 
 	document.onkeydown = (e) => filterKeyPress(e)
+
 }
 
 function filterKeyPress(e){
