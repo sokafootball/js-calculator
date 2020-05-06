@@ -5,6 +5,7 @@
 
 body{
   align-items: center;
+  background-color: hsl(202, 68%, 61%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,8 +16,17 @@ body{
   animation-duration: 0.3s;
 }
 
+#numpad button{
+  background-color: hsl(48, 95%, 61%);
+}
+
 #backspace{
+  background-color: hsl(4, 77%, 73%);
   grid-area: backspace;
+}
+
+#calculator{
+  background-color: white;
 }
 
 #calc-top{
@@ -24,10 +34,12 @@ body{
 }
 
 #clear-button{
+  background-color: hsl(38, 95%, 50%);
   grid-area: clear;
 }
 
 #display{
+  background-color: hsl(195, 78%, 67%);
   border: 1px solid black;
   font-family: 'calcFont', sans-serif;
   font-size: 45px;
@@ -74,6 +86,7 @@ body{
 }
 
 #operators button{
+  background-color: hsl(4, 82%, 63%);
   flex-grow: 1;
 }
 
