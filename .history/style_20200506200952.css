@@ -47,13 +47,12 @@ body{
   height: 600px;
   margin-top: 130px;
   padding: 30px;
-  width: 400px;
+  width: 500px;
 }
 
 #calculator button{
-  border-radius: 10px;
+  border-radius: 15px;
   border-width: 0px;
-  outline: none;
 }
 
 #calc-top{

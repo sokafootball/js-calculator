@@ -22,6 +22,8 @@ body{
 
 #numpad button{
   background-color: hsl(48, 95%, 61%);
+  border-radius: 15px;
+  border-width: 0px;
 }
 
 #backspace{
@@ -47,13 +49,7 @@ body{
   height: 600px;
   margin-top: 130px;
   padding: 30px;
-  width: 400px;
-}
-
-#calculator button{
-  border-radius: 10px;
-  border-width: 0px;
-  outline: none;
+  width: 500px;
 }
 
 #calc-top{
@@ -67,8 +63,7 @@ body{
 
 #display{
   background-color: hsl(195, 78%, 67%);
-  border-radius: 15px;
-  border-width: 0px;
+  border: 1px solid black;
   font-family: 'calcFont', sans-serif;
   font-size: 45px;
   grid-area: display;
@@ -89,19 +84,11 @@ body{
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
 }
-/*
+
 #operators{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  grid-area: operators;
-}
-*/
-
-#operators{
-  display: grid;
-  gap: var(--row-gap);
-  grid-template-rows: repeat(4, 1fr);
   grid-area: operators;
 }
 

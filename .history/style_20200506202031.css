@@ -53,7 +53,10 @@ body{
 #calculator button{
   border-radius: 10px;
   border-width: 0px;
-  outline: none;
+}
+
+#calculator button:focus{
+  border-style: hidden;
 }
 
 #calc-top{

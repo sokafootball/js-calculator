@@ -47,13 +47,12 @@ body{
   height: 600px;
   margin-top: 130px;
   padding: 30px;
-  width: 400px;
+  width: 500px;
 }
 
 #calculator button{
-  border-radius: 10px;
+  border-radius: 15px;
   border-width: 0px;
-  outline: none;
 }
 
 #calc-top{
@@ -67,7 +66,7 @@ body{
 
 #display{
   background-color: hsl(195, 78%, 67%);
-  border-radius: 15px;
+  border-radius: 15px;;
   border-width: 0px;
   font-family: 'calcFont', sans-serif;
   font-size: 45px;

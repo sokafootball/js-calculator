@@ -22,6 +22,8 @@ body{
 
 #numpad button{
   background-color: hsl(48, 95%, 61%);
+  border-radius: 15px;
+  border-width: 0px;
 }
 
 #backspace{
@@ -47,13 +49,11 @@ body{
   height: 600px;
   margin-top: 130px;
   padding: 30px;
-  width: 400px;
+  width: 500px;
 }
 
-#calculator button{
-  border-radius: 10px;
-  border-width: 0px;
-  outline: none;
+#calculator button {
+  var(--row-gap);
 }
 
 #calc-top{
@@ -67,8 +67,7 @@ body{
 
 #display{
   background-color: hsl(195, 78%, 67%);
-  border-radius: 15px;
-  border-width: 0px;
+  border: 1px solid black;
   font-family: 'calcFont', sans-serif;
   font-size: 45px;
   grid-area: display;
