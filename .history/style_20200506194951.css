@@ -27,9 +27,8 @@ body{
 
 #calculator{
   background-color: white;
-  border-radius: 30px;
   box-shadow: 21px 21px 5px 1px hsl(208, 68%, 45%);
-  padding: 30px;
+  padding: 20px;
 }
 
 #calc-top{
