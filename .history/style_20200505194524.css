@@ -1,6 +1,9 @@
 @font-face {
-  font-family: "calcFont";
-  src: url("./fonts/digital-7/digital-7.ttf");
+  font-family: "CalcFont";
+  src: url("https://yoursite.com/css/fonts/CustomFont.eot");
+  src: url("https://yoursite.com/css/fonts/CustomFont.woff") format("woff"),
+  url("https://yoursite.com/css/fonts/CustomFont.otf") format("opentype"),
+  url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
   }
 
 body{
@@ -29,8 +32,8 @@ body{
 
 #display{
   border: 1px solid black;
-  font-family: 'calcFont', sans-serif;
-  font-size: 45px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 35px;
   grid-area: display;
   line-height: 95px;
   padding-right: 5px;
