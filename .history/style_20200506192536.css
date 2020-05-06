@@ -1,8 +1,19 @@
+@font-face {
+  font-family: "calcFont";
+  src: url("./fonts/digital-7/digital-7.ttf");
+  }
+
 body{
   align-items: center;
+  background-color: hsl(202, 68%, 61%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.display-full{
+  animation-name: display-full;
+  animation-duration: 0.3s;
 }
 
 #backspace{
@@ -18,12 +29,9 @@ body{
 }
 
 #display{
-  animation-name: display-full;
-  animation-duration: 0.4s;
   border: 1px solid black;
-  box-sizing: border-box;
-  font-family: 'Barlow', sans-serif;
-  font-size: 35px;
+  font-family: 'calcFont', sans-serif;
+  font-size: 45px;
   grid-area: display;
   line-height: 95px;
   padding-right: 5px;
@@ -75,6 +83,8 @@ body{
   50% {
     border: 2px solid red;
     box-shadow: 0px 0px 6px 1px red;
+    line-height: 93px;
+    padding-right: 4px;
   }
   100% {border: 1px solid black;}
 }
