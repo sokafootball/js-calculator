@@ -20,8 +20,13 @@ body{
   animation-duration: 0.3s;
 }
 
+#numpad button{
+  background-color: hsl(48, 95%, 61%);
+}
+
 #backspace{
-  background-color: hsl(38, 95%, 50%);
+  background-color: hsl(4, 77%, 73%);
+  grid-area: backspace;
 }
 
 #calculator{
@@ -35,8 +40,8 @@ body{
     "numpad numpad numpad operators"
     "numpad numpad numpad operators"
     "numpad numpad numpad operators"
-    "numpad numpad numpad operators"
-    "equal equal equal backspace";
+    "numpad numpad clear operators"
+    ". . . backspace";
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 100px repeat(5, 1fr); /*first row is fixed to stop the border animation from taking space from other rows*/
   height: 600px;
@@ -56,8 +61,8 @@ body{
 }
 
 #clear-button{
-  background-color: hsl(4, 77%, 73%);
-
+  background-color: hsl(38, 95%, 50%);
+  grid-area: clear;
 }
 
 #display{
@@ -73,11 +78,6 @@ body{
   vertical-align: middle;
 }
 
-#equal-button{
-  background-color: hsl(115, 76%, 67%);
-  grid-area: equal;
-}
-
 #footer{
   margin-bottom: 50px;
 }
@@ -88,10 +88,6 @@ body{
   grid-area: numpad;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
-}
-
-.num-button, #decimal-button{
-  background-color: hsl(48, 95%, 61%);
 }
 /*
 #operators{

@@ -74,7 +74,6 @@ body{
 }
 
 #equal-button{
-  background-color: hsl(115, 76%, 67%);
   grid-area: equal;
 }
 

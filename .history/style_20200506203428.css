@@ -74,7 +74,6 @@ body{
 }
 
 #equal-button{
-  background-color: hsl(115, 76%, 67%);
   grid-area: equal;
 }
 
@@ -90,7 +89,7 @@ body{
   grid-template-rows: repeat(4, 1fr);
 }
 
-.num-button, #decimal-button{
+.num-button#decimal-button{
   background-color: hsl(48, 95%, 61%);
 }
 /*
