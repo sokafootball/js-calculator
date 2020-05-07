@@ -1,8 +1,9 @@
 /*
-TO DO
-
+CODE BY LAURENT CAPELLO
 */
-const MAX_DISPLAY_LENGTH = 18
+
+//#region STARTUP
+const MAX_DISPLAY_LENGTH = 12
 const MAX_DECIMALS = 3
 const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserved for the exponential notation and the dot
 let display = document.querySelector(`#display`)
@@ -11,10 +12,51 @@ let operation = null, operand1 = null, operand2 = null
 
 addFunctionsToBtns()
 
-/////////////////////
-//SUPPORT FUNCTIONS//
-/////////////////////
+function addFunctionsToBtns(){
+	let numButtons = document.querySelectorAll(`.num-button`)
+	numButtons = Array.from(numButtons)
+	numButtons.forEach(button => {
+		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
+	});
 
+	let opButtons = document.querySelectorAll(`.operation-button`)
+	opButtons = Array.from(opButtons)
+	opButtons.forEach(button => {
+		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
+	});
+
+	let equalButton = document.querySelector(`#equal-button`)
+	equalButton.addEventListener(`click`, pressEqualBtn)
+
+	let clearButton = document.querySelector(`#clear-button`)
+	clearButton.addEventListener(`click`, pressClearBtn)
+
+	let bckSpaceBtn = document.querySelector(`#backspace`)
+	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
+
+	let decimalBtn = document.querySelector(`#decimal-button`)
+	decimalBtn.addEventListener(`click`, pressDecimalBtn)
+
+	document.onkeydown = (e) => filterKeyPress(e)
+}
+
+function filterKeyPress(e){
+	console.log(`key pressed`)
+	if (e.which <= 105 && e.which >= 96){
+		pressNumBtn(Number(e.key))
+	} else if (e.which == 106 || e.which == 107 || e.which == 109 || e.which == 111) {
+		pressOperationBtn(e.key)
+	} else if (e.which == 13){
+		pressEqualBtn()
+	} else if (e.which == 110){
+		pressDecimalBtn()
+	} else if (e.which == 8){
+		pressBackspaceBtn()
+	}
+}
+//#endregion
+
+//#region SUPPORT FUNCTIONS
 function clear(){
 	display.innerText = `0`
 	operation = null
@@ -24,8 +66,13 @@ function clear(){
 }
 
 function displayNumber(num){
+	if(num == 0 && display.innerText == `0`) return
   if(overwriteIsOn){
-		display.innerText = num
+		if(num == `.`){
+			display.innerText += num
+		}else{
+			display.innerText = num
+		}
 		overwriteIsOn = false
 	}else{
 		if(display.innerText.length >= MAX_DISPLAY_LENGTH){
@@ -53,13 +100,35 @@ function saveOperation(operationSign){
 	overwriteIsOn = true
 }
 
-/////////////////////
-//BUTTONS FUNCTIONS//
-/////////////////////
+function truncateDecimals(num){
+	if((num % 1).toString().length > MAX_DECIMALS) return Number(num).toFixed(MAX_DECIMALS)
+	return num
+}
 
-function pressDeleteBtn(){
-	if(display.innerText.length == 0) return
-	display.innerText = display.innerText.slice(0, -1);
+function truncateIntegers(num){
+	if(num.toString().length <= MAX_DISPLAY_LENGTH) return num
+	return num.toExponential(EXPONENTIAL_NOTATION_DIGITS)
+}
+//#endregion
+
+//#region BUTTONS FUNCTIONS
+function pressBackspaceBtn(){
+	//if display length is 1
+	if(display.innerText.length == 1){
+		display.innerText = `0`
+	}else{
+		let displayArray = Array.from(display.innerText)
+		displayArray.pop()
+		display.innerText = displayArray.join(``)
+	}
+	saveNumber()
+}
+
+function pressDecimalBtn(){
+	//add dot to the right of the number on display
+	if (display.innerText.includes(`.`)) return
+	displayNumber(`.`)
+	saveNumber()
 }
 
 function pressClearBtn(){
@@ -95,12 +164,9 @@ function pressOperationBtn(operationSign){
 		saveOperation(operationSign)
 	}
 }
-////#region test
-lol
-////#endregion
-//////////////////
-//MATH FUNCTIONS//
-//////////////////
+//#endregion
+
+//#region MATH FUNCTIONS
 function operate(operation, a, b){
 	let result = null
 	switch (operation){
@@ -123,7 +189,7 @@ function operate(operation, a, b){
 	result = Number(operation(a,b))
 	result = truncateDecimals(result)
 	result = truncateIntegers(result)
-  return result
+  return Number(result)
 }
 
 function add (...nums) {
@@ -157,13 +223,11 @@ function multiply (...nums) {
 		return total * num
 	})
 }
+//#endregion
 
-///////////////////////////////
-//DISPLAY ANIMATION FUNCTIONS//
-///////////////////////////////
+//#region DISPLAY ANIMATION FUNCTIONS
 function convertDuration(durationString){
 	let duration = Number(durationString.replace(`s`, ``))
-	console.log(duration)
 	return duration * 1000
 }
 
@@ -174,52 +238,15 @@ function animateDisplay(){
 	display.classList.add(`display-full`)
 	setTimeout(() => display.classList.remove(`display-full`), ANIM_DURATION);
 }
+//#endregion
 
 
 
 
-function addFunctionsToBtns(){
-	let numButtons = document.querySelectorAll(`.num-button`)
-	numButtons = Array.from(numButtons)
-	numButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressNumBtn(button.innerText))
-	});
-
-	let opButtons = document.querySelectorAll(`.operation-button`)
-	opButtons = Array.from(opButtons)
-	opButtons.forEach(button => {
-		button.addEventListener(`click`, () => pressOperationBtn(button.innerText))
-	});
-
-	let equalButton = document.querySelector(`#equal-button`)
-	equalButton.addEventListener(`click`, pressEqualBtn)
-
-	let clearButton = document.querySelector(`#clear-button`)
-	clearButton.addEventListener(`click`, pressClearBtn)
-
-	let bckSpaceBtn = document.querySelector(`#backspace`)
-	bckSpaceBtn.addEventListener(`click`, pressBackspaceBtn)
-}
-
-function truncateDecimals(num){
-	if((num % 1).toString().length > MAX_DECIMALS) return Number(num).toFixed(MAX_DECIMALS)
-	return num
-}
-
-function truncateIntegers(num){
-	if(num.toString().length <= MAX_DISPLAY_LENGTH) return num
-	return num.toExponential(EXPONENTIAL_NOTATION_DIGITS)
-}
 
 
-function pressBackspaceBtn(){
-	//if display length is 1
-	if(display.innerText.length == 1){
-		display.innerText = `0`
-	}else{
-		let displayArray = Array.from(display.innerText)
-		displayArray.pop()
-		display.innerText = displayArray.join(``)
-	}
-	saveNumber()
-}
+
+
+
+
+

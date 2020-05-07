@@ -3,7 +3,7 @@ CODE BY LAURENT CAPELLO
 */
 
 //#region STARTUP
-const MAX_DISPLAY_LENGTH = 14
+const MAX_DISPLAY_LENGTH = 12
 const MAX_DECIMALS = 3
 const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserved for the exponential notation and the dot
 let display = document.querySelector(`#display`)
