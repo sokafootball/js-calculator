@@ -123,7 +123,6 @@ function highLightBtn(button){
 }
 
 function pressBackspaceBtn(){
-	highLightBtn(bckSpaceBtn)
 	if(display.innerText.length == 1){
 		display.innerText = `0`
 	}else{
@@ -142,7 +141,6 @@ function pressDecimalBtn(){
 }
 
 function pressClearBtn(){
-	highLightBtn(clearButton)
 	clear()
 }
 

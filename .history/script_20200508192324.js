@@ -142,7 +142,6 @@ function pressDecimalBtn(){
 }
 
 function pressClearBtn(){
-	highLightBtn(clearButton)
 	clear()
 }
 

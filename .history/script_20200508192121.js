@@ -123,7 +123,6 @@ function highLightBtn(button){
 }
 
 function pressBackspaceBtn(){
-	highLightBtn(bckSpaceBtn)
 	if(display.innerText.length == 1){
 		display.innerText = `0`
 	}else{
@@ -135,19 +134,16 @@ function pressBackspaceBtn(){
 }
 
 function pressDecimalBtn(){
-	highLightBtn(decimalBtn)
 	if (display.innerText.includes(`.`)) return
 	displayNumber(`.`)
 	saveNumber()
 }
 
 function pressClearBtn(){
-	highLightBtn(clearButton)
 	clear()
 }
 
 function pressEqualBtn(){
-	highLightBtn(equalButton)
 	if(operand1 != null && operand2 != null){
 		displayResult()
 		operation = null
@@ -168,7 +164,6 @@ function pressNumBtn(num){
 }
 
 function pressOperationBtn(operationSign){
-	highLightBtn(opButtons.find(btn => btn.innerText == operationSign))
 	if (operation == null){
 		saveOperation(operationSign)
 	}else{

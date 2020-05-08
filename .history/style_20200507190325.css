@@ -16,13 +16,8 @@ body{
 }
 
 button{
-  color: #3c3737;
   font-family: 'Titillium Web', sans-serif;
   font-size: 35px;
-}
-
-.button-pressed {
-  opacity: 60%;
 }
 
 .display-full{
@@ -31,7 +26,7 @@ button{
 }
 
 #backspace{
-  background-color: hsl(41, 94%, 57%);
+  background-color: hsl(38, 95%, 50%);
 }
 
 #calculator{

@@ -21,10 +21,6 @@ button{
   font-size: 35px;
 }
 
-.button-pressed {
-  opacity: 60%;
-}
-
 .display-full{
   animation-name: display-full;
   animation-duration: 0.3s;
@@ -116,6 +112,10 @@ button{
 #operators button{
   background-color: hsl(4, 82%, 63%);
   flex-grow: 1;
+}
+
+.button:hover {
+  background-color: rgba(0,0,0,.30);
 }
 
 @keyframes display-full{

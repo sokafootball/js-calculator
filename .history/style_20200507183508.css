@@ -15,15 +15,7 @@ body{
   justify-content: space-between;
 }
 
-button{
-  color: #3c3737;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 35px;
-}
 
-.button-pressed {
-  opacity: 60%;
-}
 
 .display-full{
   animation-name: display-full;
@@ -31,7 +23,7 @@ button{
 }
 
 #backspace{
-  background-color: hsl(41, 94%, 57%);
+  background-color: hsl(38, 95%, 50%);
 }
 
 #calculator{
@@ -86,7 +78,6 @@ button{
 
 #equal-button{
   background-color: hsl(115, 76%, 67%);
-  font-size: 50px;
   grid-area: equal;
 }
 
@@ -103,8 +94,16 @@ button{
 }
 
 .num-button, #decimal-button{
-  background-color: hsl(53, 95%, 63%);
+  background-color: hsl(48, 95%, 61%);
 }
+/*
+#operators{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-area: operators;
+}
+*/
 
 #operators{
   display: grid;
@@ -123,8 +122,8 @@ button{
   50% {
     border: 2px solid red;
     box-shadow: 0px 0px 6px 1px red;
-    line-height: 86px;
-    padding-right: 13px;
+    line-height: 93px;
+    padding-right: 4px;
   }
   100% {border: 1px solid black;}
 }
