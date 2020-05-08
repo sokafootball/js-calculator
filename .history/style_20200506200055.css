@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "calcFont";
+  src: url("./fonts/digital-7/digital-7.ttf");
+  }
+
+body{
+  align-items: center;
+  background-color: hsl(202, 68%, 61%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.display-full{
+  animation-name: display-full;
+  animation-duration: 0.3s;
+}
+
+#numpad button{
+  background-color: hsl(48, 95%, 61%);
+  border-radius: 15px;
+  border-width: 0px;
+}
+
+#backspace{
+  background-color: hsl(4, 77%, 73%);
+  grid-area: backspace;
+}
+
+#calculator{
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 21px 21px 5px 1px hsl(208, 68%, 45%);
+  padding: 30px;
+}
+
+#calc-top{
+  margin-bottom: 40px;
+}
+
+#clear-button{
+  background-color: hsl(38, 95%, 50%);
+  grid-area: clear;
+}
+
+#display{
+  background-color: hsl(195, 78%, 67%);
+  border: 1px solid black;
+  font-family: 'calcFont', sans-serif;
+  font-size: 45px;
+  grid-area: display;
+  line-height: 95px;
+  padding-right: 5px;
+  text-align: right;
+  vertical-align: middle;
+}
+
+#calculator{
+  display: grid;
+  gap: 15px 30px;
+  grid-template-areas:
+    "display display display backspace"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    "numpad numpad numpad operators"
+    ". clear clear .";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px repeat(5, 1fr); /*first row is fixed to stop the border animation from taking space from other rows*/
+  height: 600px;
+  margin-top: 130px;
+  width: 500px;
+}
+
+#footer{
+  margin-bottom: 50px;
+}
+
+#numpad{
+  display: grid;
+  gap: 15px 15px;
+  grid-area: numpad;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+#operators{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-area: operators;
+}
+
+#operators button{
+  background-color: hsl(4, 82%, 63%);
+  flex-grow: 1;
+}
+
+@keyframes display-full{
+  0% {border: 1px solid black;}
+  50% {
+    border: 2px solid red;
+    box-shadow: 0px 0px 6px 1px red;
+    line-height: 93px;
+    padding-right: 4px;
+  }
+  100% {border: 1px solid black;}
+}

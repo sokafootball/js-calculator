@@ -45,6 +45,7 @@ decimalBtn.addEventListener(`click`, pressDecimalBtn)
 document.onkeydown = (e) => filterKeyPress(e)
 
 function filterKeyPress(e){
+	console.log(`key pressed`)
 	if (e.which <= 105 && e.which >= 96){
 		pressNumBtn(Number(e.key))
 	} else if (e.which == 106 || e.which == 107 || e.which == 109 || e.which == 111) {
@@ -122,7 +123,6 @@ function highLightBtn(button){
 }
 
 function pressBackspaceBtn(){
-	highLightBtn(bckSpaceBtn)
 	if(display.innerText.length == 1){
 		display.innerText = `0`
 	}else{
@@ -134,14 +134,12 @@ function pressBackspaceBtn(){
 }
 
 function pressDecimalBtn(){
-	highLightBtn(decimalBtn)
 	if (display.innerText.includes(`.`)) return
 	displayNumber(`.`)
 	saveNumber()
 }
 
 function pressClearBtn(){
-	highLightBtn(clearButton)
 	clear()
 }
 

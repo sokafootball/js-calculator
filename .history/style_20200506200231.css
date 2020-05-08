@@ -15,23 +15,20 @@ body{
   justify-content: space-between;
 }
 
-button{
-  color: #3c3737;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 35px;
-}
-
-.button-pressed {
-  opacity: 60%;
-}
-
 .display-full{
   animation-name: display-full;
   animation-duration: 0.3s;
 }
 
+#numpad button{
+  background-color: hsl(48, 95%, 61%);
+  border-radius: 15px;
+  border-width: 0px;
+}
+
 #backspace{
-  background-color: hsl(41, 94%, 57%);
+  background-color: hsl(4, 77%, 73%);
+  grid-area: backspace;
 }
 
 #calculator{
@@ -39,26 +36,20 @@ button{
   border-radius: 30px;
   box-shadow: 21px 21px 5px 1px hsl(208, 68%, 45%);
   display: grid;
-  gap: var(--row-gap) 22px;
+  gap: 15px 30px;
   grid-template-areas:
-    "display display display display"
+    "display display display backspace"
     "numpad numpad numpad operators"
     "numpad numpad numpad operators"
     "numpad numpad numpad operators"
     "numpad numpad numpad operators"
-    "equal equal equal backspace";
+    ". clear clear .";
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 100px repeat(5, 1fr); /*first row is fixed to stop the border animation from taking space from other rows*/
   height: 600px;
   margin-top: 130px;
   padding: 30px;
-  width: 400px;
-}
-
-#calculator button{
-  border-radius: 10px;
-  border-width: 0px;
-  outline: none;
+  width: 500px;
 }
 
 #calc-top{
@@ -66,28 +57,20 @@ button{
 }
 
 #clear-button{
-  background-color: hsl(4, 77%, 73%);
-
+  background-color: hsl(38, 95%, 50%);
+  grid-area: clear;
 }
 
 #display{
   background-color: hsl(195, 78%, 67%);
-  border-radius: 15px;
-  border-width: 0px;
-  color: #272727;
+  border: 1px solid black;
   font-family: 'calcFont', sans-serif;
-  font-size: 65px;
+  font-size: 45px;
   grid-area: display;
-  line-height: 90px;
-  padding-right: 15px;
+  line-height: 95px;
+  padding-right: 5px;
   text-align: right;
   vertical-align: middle;
-}
-
-#equal-button{
-  background-color: hsl(115, 76%, 67%);
-  font-size: 50px;
-  grid-area: equal;
 }
 
 #footer{
@@ -96,20 +79,16 @@ button{
 
 #numpad{
   display: grid;
-  gap: var(--row-gap);
+  gap: 15px 15px;
   grid-area: numpad;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
 }
 
-.num-button, #decimal-button{
-  background-color: hsl(53, 95%, 63%);
-}
-
 #operators{
-  display: grid;
-  gap: var(--row-gap);
-  grid-template-rows: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   grid-area: operators;
 }
 
@@ -118,17 +97,13 @@ button{
   flex-grow: 1;
 }
 
-#signature{
-  font-size: 22px;
-}
-
 @keyframes display-full{
   0% {border: 1px solid black;}
   50% {
     border: 2px solid red;
     box-shadow: 0px 0px 6px 1px red;
-    line-height: 86px;
-    padding-right: 13px;
+    line-height: 93px;
+    padding-right: 4px;
   }
   100% {border: 1px solid black;}
 }

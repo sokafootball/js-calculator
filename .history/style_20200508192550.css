@@ -121,6 +121,7 @@ button{
 #signature{
   font-size: 22px;
 }
+}
 
 @keyframes display-full{
   0% {border: 1px solid black;}

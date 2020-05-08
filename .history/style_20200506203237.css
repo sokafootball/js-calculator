@@ -15,23 +15,15 @@ body{
   justify-content: space-between;
 }
 
-button{
-  color: #3c3737;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 35px;
-}
-
-.button-pressed {
-  opacity: 60%;
-}
-
 .display-full{
   animation-name: display-full;
   animation-duration: 0.3s;
 }
 
+
+
 #backspace{
-  background-color: hsl(41, 94%, 57%);
+  background-color: hsl(38, 95%, 50%);
 }
 
 #calculator{
@@ -39,7 +31,7 @@ button{
   border-radius: 30px;
   box-shadow: 21px 21px 5px 1px hsl(208, 68%, 45%);
   display: grid;
-  gap: var(--row-gap) 22px;
+  gap: var(--row-gap) 30px;
   grid-template-areas:
     "display display display display"
     "numpad numpad numpad operators"
@@ -74,19 +66,16 @@ button{
   background-color: hsl(195, 78%, 67%);
   border-radius: 15px;
   border-width: 0px;
-  color: #272727;
   font-family: 'calcFont', sans-serif;
-  font-size: 65px;
+  font-size: 45px;
   grid-area: display;
-  line-height: 90px;
-  padding-right: 15px;
+  line-height: 95px;
+  padding-right: 5px;
   text-align: right;
   vertical-align: middle;
 }
 
 #equal-button{
-  background-color: hsl(115, 76%, 67%);
-  font-size: 50px;
   grid-area: equal;
 }
 
@@ -102,9 +91,17 @@ button{
   grid-template-rows: repeat(4, 1fr);
 }
 
-.num-button, #decimal-button{
-  background-color: hsl(53, 95%, 63%);
+#numpad button{
+  background-color: hsl(48, 95%, 61%);
 }
+/*
+#operators{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-area: operators;
+}
+*/
 
 #operators{
   display: grid;
@@ -118,17 +115,13 @@ button{
   flex-grow: 1;
 }
 
-#signature{
-  font-size: 22px;
-}
-
 @keyframes display-full{
   0% {border: 1px solid black;}
   50% {
     border: 2px solid red;
     box-shadow: 0px 0px 6px 1px red;
-    line-height: 86px;
-    padding-right: 13px;
+    line-height: 93px;
+    padding-right: 4px;
   }
   100% {border: 1px solid black;}
 }
