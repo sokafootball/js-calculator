@@ -1,7 +1,5 @@
 /*
 CODE BY LAURENT CAPELLO
-
--remove opacity when button is activated
 */
 
 //#region STARTUP
@@ -11,12 +9,6 @@ const EXPONENTIAL_NOTATION_DIGITS = MAX_DISPLAY_LENGTH - 4 //4 digits are reserv
 let display = document.querySelector(`#display`)
 let overwriteIsOn = true
 let operation = null, operand1 = null, operand2 = null
-
-// let allButtons = document.querySelectorAll(`.button`)
-// allButtons = Array.from(allButtons)
-// allButtons.forEach(button => {
-// 	button.addEventListener(`click`, () => button.classList.add(`button-pressed`))
-// });
 
 let numButtons = document.querySelectorAll(`.num-button`)
 numButtons = Array.from(numButtons)
